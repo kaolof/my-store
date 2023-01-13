@@ -16,4 +16,8 @@ export class AppComponent {
     age: 18,
     avatar:'https://source.unsplash.com/random'
   }
+
+  onScroll(event:Event){
+    
+  }
 }
