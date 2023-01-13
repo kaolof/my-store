@@ -1,10 +1,16 @@
+<h1>Eventos</h1>
+<button [disabled]="btnDisabled">enviar</button>
+<button (click)="toggleButton()">Toggle Button</button>
+<p>Edad {{person.age}}</p>
+<button (click)="increaseAge()">Age ++</button>
+<hr>
 <h1>Propiedades</h1>
 <button [disabled]="btnDisabled">enviar</button>
 <input type="text" [value]="person.name">
 <progress max="100" [value]="person.age"></progress>
 <img [src]="person.avatar" alt="imagen" width="100">
-<div class="box" (scroll)="">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa quidem blanditiis tempore error quod debitis esse nulla! Nihil architecto asperiores eveniet nam, ut quos delectus ab tempore fugiat repellat praesentium.</p>
+<div class="box" (scroll)="onScroll($event)">
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore doloremque natus fugiat provident repudiandae. Necessitatibus dolorem veniam doloremque voluptas veritatis, perspiciatis repellat quisquam nobis totam magni incidunt quis, facilis minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa quidem blanditiis tempore error quod debitis esse nulla! Nihil architecto asperiores eveniet nam, ut quos delectus ab tempore fugiat repellat praesentium.</p>
 </div>
 <hr>
 <h1>hola mundo</h1>
