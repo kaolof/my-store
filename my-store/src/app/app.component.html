@@ -1,17 +1,73 @@
+<h1>ngSwitch </h1>
+<input type="text" required [(ngModel)]="person.name">
+<div [ngSwitch]="person.name">
+    <p *ngSwitchCase="'nicolas'">
+        La persona es nicolas
+    </p>
+    <p *ngSwitchCase="'julian'">
+        La persona es julian
+    </p>
+    <p *ngSwitchCase="'camilo'">
+        La persona es camilo
+    </p>
+    <p *ngSwitchDefault="">
+        No hace match
+    </p>
+
+</div>
+<hr>
+<h1>*ngFor oBjs</h1>
+<div>
+    <div *ngFor="let produt of products">
+        <img [src]="produt.image" alt="producto">
+        <h2>price: {{produt.price}}</h2>
+        <h2>name: {{produt.name}}</h2>
+    </div>
+</div>
+<hr>
+<h1>*ngFor</h1>
+<ul>
+    <input type="text" required [(ngModel)]="newName" >
+    <button (click)="addName()">add name</button>
+    <p *ngIf="names.length === 0">No hay elementos en la lista!!!</p>
+    <li *ngFor="let name of names; index as i">
+      {{i}} {{name}}
+      <button (click)="deleteName(i)">delete</button>
+    </li>
+</ul>
+<hr>
+<h1>*ngIf</h1>
+<input type="text" required [(ngModel)]="person.name"/>
+<p *ngIf="person.name==='nicolas'">Soy Nicolas</p>
+<p *ngIf="person.name==='julian' && person.age===18; else myBlock">Soy Julian</p>
+<ng-template #myBlock>
+    <p>Bloque de else</p>
+</ng-template>
+<hr>
+<h1>ngModel</h1>
+<p>Nombre {{person.name}}</p>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name"/>
+<p>Valid: {{nameInput.valid}}</p>
+<p>Age {{person.age}}</p>
+<input type="number" max="18" min="10" required #ageInput="ngModel" [(ngModel)]="person.age"/>
+<p>Valid: {{ageInput.valid}}</p>
+<hr>
 <h1>Eventos</h1>
 <button [disabled]="btnDisabled">enviar</button>
 <button (click)="toggleButton()">Toggle Button</button>
 <p>Edad {{person.age}}</p>
 <button (click)="increaseAge()">Age ++</button>
+<div class="box" (scroll)="onScroll($event)">
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore doloremque natus fugiat provident repudiandae. Necessitatibus dolorem veniam doloremque voluptas veritatis, perspiciatis repellat quisquam nobis totam magni incidunt quis, facilis minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa quidem blanditiis tempore error quod debitis esse nulla! Nihil architecto asperiores eveniet nam, ut quos delectus ab tempore fugiat repellat praesentium.</p>
+</div>
+<p>Nombre {{person.name}}</p>
+<input type="text" [value]="person.name" (keyup)="changeName($event)">
 <hr>
 <h1>Propiedades</h1>
 <button [disabled]="btnDisabled">enviar</button>
 <input type="text" [value]="person.name">
 <progress max="100" [value]="person.age"></progress>
 <img [src]="person.avatar" alt="imagen" width="100">
-<div class="box" (scroll)="onScroll($event)">
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore doloremque natus fugiat provident repudiandae. Necessitatibus dolorem veniam doloremque voluptas veritatis, perspiciatis repellat quisquam nobis totam magni incidunt quis, facilis minus. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa quidem blanditiis tempore error quod debitis esse nulla! Nihil architecto asperiores eveniet nam, ut quos delectus ab tempore fugiat repellat praesentium.</p>
-</div>
 <hr>
 <h1>hola mundo</h1>
 <h2>{{"Hola mundo".repeat(5)}}</h2>

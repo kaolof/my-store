@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './product.model';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,35 @@ export class AppComponent {
     age: 18,
     avatar:'https://source.unsplash.com/random'
   }
+
+  names: string[]=['Nico', 'Juli', 'Santi'];
+  newName='';
+
+  products: Product[] = [
+    {
+      name: 'EL mejor juguete',
+      price: 565,
+      image: './assets/images/ICONO 1.png',
+      category: 'all',
+    },
+    {
+      name: 'Bicicleta casi nueva',
+      price: 356,
+      image: './assets/images/ICONO 2.png'
+    },
+    {
+      name: 'Colleción de albumnes',
+      price: 34,
+      image: './assets/images/ICONO 3.png'
+    },
+    {
+      name: 'Mis libros',
+      price: 23,
+      image: './assets/images/ICONO 4.png'
+    }
+
+  ]
+
   toggleButton(){
     this.btnDisabled=!this.btnDisabled;
   }
@@ -25,5 +55,17 @@ export class AppComponent {
   onScroll(event:Event){
     const element=event.target as HTMLElement;
     console.log(element.scrollTop);
+  }
+  changeName(event: Event){
+    const element=event.target as HTMLInputElement;
+    this.person.name=element.value;
+  }
+  addName(){
+    this.names.push(this.newName);
+    this.newName='';
+  }
+
+  deleteName(index: number){
+    this.names.splice(index,1);
   }
 }
