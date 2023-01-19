@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EmailValidator } from '@angular/forms';
 import { Product } from './product.model';
 
 @Component({
@@ -7,10 +8,16 @@ import { Product } from './product.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  widthImg=10;
   name = 'kao';
   age=18;
   img='https://source.unsplash.com/random';
   btnDisabled=true;
+  register={
+    name: '',
+    email: '',
+    password:''
+  }
   //object
   person={
     name: 'Nicolas',
@@ -20,32 +27,45 @@ export class AppComponent {
 
   names: string[]=['Nico', 'Juli', 'Santi'];
   newName='';
+  box={
+    width: 100,
+    height:100,
+    background:'red'
+  };
 
   products: Product[] = [
     {
       name: 'EL mejor juguete',
       price: 565,
-      image: './assets/images/ICONO 1.png',
+      image: './assets/images/toy.jpg',
       category: 'all',
     },
     {
       name: 'Bicicleta casi nueva',
       price: 356,
-      image: './assets/images/ICONO 2.png'
+      image: './assets/images/bike.jpg'
     },
     {
       name: 'Colleción de albumnes',
       price: 34,
-      image: './assets/images/ICONO 3.png'
+      image: './assets/images/album.jpg'
     },
     {
       name: 'Mis libros',
       price: 23,
-      image: './assets/images/ICONO 4.png'
+      image: './assets/images/books.jpg'
+    },
+    {
+      name: 'Casa para perro',
+      price: 34,
+      image: './assets/images/house.jpg'
+    },
+    {
+      name: 'Gafas',
+      price: 3434,
+      image: './assets/images/glasses.jpg'
     }
-
   ]
-
   toggleButton(){
     this.btnDisabled=!this.btnDisabled;
   }
@@ -68,4 +88,9 @@ export class AppComponent {
   deleteName(index: number){
     this.names.splice(index,1);
   }
+  OnRegister(){
+    console.log(this.register);
+  }
 }
+
+
